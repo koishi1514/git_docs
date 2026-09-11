@@ -36,11 +36,11 @@ markdown_extensions:
 plugins:
   - search
 
-draft_docs: |
+exclude_docs: |
   README.md
-  geo测试.md
-  华信GEO监测测试问题设计.md
 
 nav:
   - 首页: index.md
+  - GEO测试内容: geo测试.md
   - 监测指标概念: 华信GEO监测指标概念文档.md
+  - 监测测试问题设计: 华信GEO监测测试问题设计.md
