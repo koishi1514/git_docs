@@ -1,4 +1,4 @@
-name: Deploy MkDocs to GitHub Pages
+name: Deploy docs to GitHub Pages
 
 on:
   push:
@@ -25,7 +25,30 @@ jobs:
           python-version: '3.11'
           cache: pip
       - run: pip install -r requirements.txt
-      - run: mkdocs build --strict
+      - name: Build all sub-sites
+        run: |
+          set -e
+          rm -rf _build site
+          mkdir -p _build
+          # 根站：说明页
+          mkdocs build -f landing/mkdocs.yml -d "$PWD/_build/root" --strict
+          # 其余每个含 mkdocs.yml 的目录，构建到同名子路径
+          for dir in */; do
+            dir="${dir%/}"
+            [ "$dir" = "landing" ] && continue
+            [ -f "$dir/mkdocs.yml" ] || continue
+            mkdocs build -f "$dir/mkdocs.yml" -d "$PWD/_build/$dir" --strict
+          done
+          # 组装：根站 -> site/，子站 -> site/<name>/
+          mkdir -p site
+          cp -r _build/root/. site/
+          for built in _build/*/; do
+            built="${built%/}"
+            name="$(basename "$built")"
+            [ "$name" = "root" ] && continue
+            mkdir -p "site/$name"
+            cp -r "$built/." "site/$name/"
+          done
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,0 +1,10 @@
+site_name: 文档库
+site_description: 文档共享
+site_url: https://koishi1514.github.io/git_docs/
+
+theme:
+  name: material
+  language: zh
+
+nav:
+  - 说明: index.md

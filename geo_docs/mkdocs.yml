@@ -1,6 +1,6 @@
-site_name: 文档库
+site_name: 华信 GEO 文档
 site_description: 华信 GEO 监测相关文档
-site_url: https://koishi1514.github.io/git_docs/
+site_url: https://koishi1514.github.io/git_docs/geo_docs/
 
 theme:
   name: material
@@ -37,11 +37,10 @@ plugins:
   - search
 
 draft_docs: |
-  geo_docs/README.md
-  geo_docs/geo测试.md
-  geo_docs/华信GEO监测测试问题设计.md
+  README.md
+  geo测试.md
+  华信GEO监测测试问题设计.md
 
 nav:
   - 首页: index.md
-  - GEO:
-      - 监测指标概念: geo_docs/华信GEO监测指标概念文档.md
+  - 监测指标概念: 华信GEO监测指标概念文档.md
