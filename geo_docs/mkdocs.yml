@@ -40,7 +40,7 @@ exclude_docs: |
   README.md
 
 nav:
-  - 首页: index.md
+  - 目录: index.md
   - GEO测试内容: geo测试.md
   - 监测指标概念: 华信GEO监测指标概念文档.md
   - 监测测试问题设计: 华信GEO监测测试问题设计.md
