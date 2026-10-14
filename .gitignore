@@ -2,3 +2,4 @@ site/
 _build/
 .wrangler/
 LOCAL_NOTES.md
+sync-docs.ps1
