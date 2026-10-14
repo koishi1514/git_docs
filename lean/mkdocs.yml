@@ -28,5 +28,12 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
 
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      fallback_to_build_date: true
+
 nav:
   - 文档: index.md
